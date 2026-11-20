@@ -1,140 +1,128 @@
-# README — [Nombre del proyecto]
+# README — Plataforma de Gestión de Solicitudes Académicas (PA4)
 
 > **Curso:** PROGRAMACION WEB - II  
 > **Código:** 30690  
 > **Evaluación:** PA4 — Proceso de Aprendizaje 4  
-> **Periodo / corte:** 202620 · Sesión 10  
+> **Periodo / corte:** 202620 · Sesión 13  
 > **Equipo:** Grupo 7  
 
 
 ## 1. Integrantes
 
-| Integrante | Rol | Aporte principal |
+| Integrante | Rol | Participación |
 |---|---|---|
-| Leonardo Alonso Guillén Zúñiga | [Actividades o módulos a cargo] | [Resumen de lo que desarrolló] |
-| Flavio César García Flores | [Actividades o módulos a cargo] | [Resumen de lo que desarrolló] |
-| Mariano Guerrero Barrueto | [Actividades o módulos a cargo] | [Resumen de lo que desarrolló] |
-| Santiago Javier Prado Carrasco | [Actividades o módulos a cargo] | [Resumen de lo que desarrolló] |
-| Mariano Ramón Valderrama Shuña | [Actividades o módulos a cargo] | [Resumen de lo que desarrolló] |
+| Leonardo Alonso Guillén Zúñiga | [Rol] | [Qué desarrolló] |
+| Flavio César García Flores | [Rol] | [Qué desarrolló] |
+| Mariano Guerrero Barrueto | [Rol] | [Qué desarrolló] |
+| Santiago Javier Prado Carrasco | [Rol] | [Qué desarrolló] |
+| Mariano Ramón Valderrama Shuña | [Rol] | [Qué desarrolló] |
+
+### Reparto de actividades
+
+| # | Actividad | Responsable |
+|---|---|---|
+| 1 | Backend Node.js: API con login JWT y `/solicitudes` (apoyo a la Actividad 1) | [Nombre] |
+| 2 | Actividad 1: consumo de APIs y sesiones JWT en React | [Nombre] |
+| 3 | Actividad 2: Next.js con SSR, SSG y rutas dinámicas | [Nombre] |
+| 4 | Actividad 3: despliegue del frontend en Vercel | [Nombre] |
+| 5 | Actividad 4: preparación para producción | [Nombre] |
 
 
 ## 2. Descripción y objetivo
 
-**Problema:**  
-[Describe la necesidad o situación que el proyecto busca resolver, y para quién.]
+**Descripción:**  
+[Qué es la plataforma y qué se agregó en esta cuarta etapa respecto a la PA3.]
 
 **Objetivo:**  
-[Qué se quiere construir o demostrar, indicando las tecnologías o conceptos principales que se aplican.]
+Integrar el frontend con una API y sesiones JWT, optimizar la entrega con Next.js (SSR/SSG y rutas dinámicas), desplegarlo en Vercel y preparar la solución para producción.
 
 **Alcance:**  
-[Qué incluye esta etapa y qué queda fuera (por ejemplo, funcionalidades previstas para sesiones posteriores).]
+Sesiones 11 a 13. No incluye despliegue del backend en Render/MongoDB Atlas ni seguridad XSS/CSRF (sesiones 14 y 15).
 
-**Solución desarrollada:**
-- [Tecnología o herramienta base y cómo se creó el proyecto.]
-- [Funcionalidad o módulo 1: qué hace y dónde está en el código.]
-- [Funcionalidad o módulo 2: qué hace y dónde está en el código.]
-- [Funcionalidad o módulo 3: qué hace y dónde está en el código.]
-- [Organización del código: carpetas y componentes principales.]
 
-### Rutas / Módulos principales
+## 3. Desarrollo
 
-| Ruta o módulo | Vista o función |
-|---|---|
-| `[/ruta-1]` | [Descripción] |
-| `[/ruta-2]` | [Descripción] |
-| `[/ruta-3]` | [Descripción] |
+### Actividad 1: Consumo de APIs y sesiones JWT en React
+[Cómo se consume la API (Fetch/Axios), cómo se manejan errores y respuestas, y cómo se gestiona la sesión y el token.]
 
-### Actividades del documento y contenidos evaluados
+### Actividad 2: Next.js con SSR, SSG y rutas dinámicas
+[Qué vistas usan SSR y cuáles SSG, la ruta dinámica y la justificación de la elección.]
 
-| # | Actividad | Contenido del sílabo | Dónde verlo |
-|---|---|---|---|
-| 1 | [Actividad] | [Sesión y tema] | `[ruta/al/archivo]` |
-| 2 | [Actividad] | [Sesión y tema] | `[ruta/al/archivo]` |
-| 3 | [Actividad] | [Sesión y tema] | `[ruta/al/archivo]` |
+### Actividad 3: Despliegue en Vercel
+[Proceso de despliegue, variables configuradas y verificación de rutas.]  
+**URL desplegada:** [URL de Vercel]
+
+### Actividad 4: Preparación para producción
+[Resumen de lo configurado. Detalle en [`docs/produccion.md`](docs/produccion.md).]
 
 ### Decisiones técnicas
-
 - **[Decisión 1]:** [Qué se decidió y por qué.]
 - **[Decisión 2]:** [Qué se decidió y por qué.]
-- **[Decisión 3]:** [Qué se decidió y por qué.]
-
-### Comparación técnica: [Alternativa A] vs [Alternativa B]
-
-*(Sección opcional: elimínala si la evaluación no pide comparar tecnologías.)*
-
-**Comparación general**
-
-| Aspecto | [Alternativa A] | [Alternativa B] |
-|---|---|---|
-| [Aspecto 1] | [Valor] | [Valor] |
-| [Aspecto 2] | [Valor] | [Valor] |
-| [Aspecto 3] | [Valor] | [Valor] |
-
-**Según lo implementado**
-
-| Aspecto | [Alternativa A] ([dónde se usó]) | [Alternativa B] ([dónde se usó]) |
-|---|---|---|
-| Qué resuelve | [Descripción] | [Descripción] |
-| Cómo se usa | [Descripción] | [Descripción] |
-| Código necesario | [Descripción] | [Descripción] |
-
-**Conclusión técnica:** [Cuál fue suficiente o más adecuada para el caso, por qué, y en qué situación convendría la otra.]
-
-### Herramientas
-
-[Lista de herramientas, lenguajes, librerías y servicios utilizados.]
 
 
-## 3. Cómo ejecutar o revisar
+## 4. Solución propuesta
+
+[Arquitectura general: frontend, API, autenticación y despliegue. Puede incluir un diagrama.]
+
+**Herramientas:** [React, Next.js, Node.js, Express, Axios, Vercel, Git y GitHub, etc.]
+
+
+## 5. Cómo ejecutar o revisar
 
 ```bash
 git clone [URL-del-repositorio]
 cd [nombre-del-repositorio]
-[comando para instalar dependencias]
-[comando para ejecutar el proyecto]
+cp .env.example .env
+npm install
+npm run dev
 ```
 
-**Requisitos:** [Versiones de runtime, base de datos, variables de entorno u otros requisitos.]
-
-La aplicación queda disponible en [dirección o forma de acceso].
-
-**Estado del proyecto:** [Operativo / En desarrollo / Parcial. Indica si compila, si pasa las pruebas o el lint, y qué se puede recorrer completo.]
+**Requisitos:** [Versión de Node.js y variables de entorno necesarias. Ver `.env.example`.]
 
 **Pasos de revisión:**
-1. [Paso 1 y resultado esperado.]
-2. [Paso 2 y resultado esperado.]
-3. [Paso 3 y resultado esperado.]
-4. [Comandos de verificación (build, tests, lint) y resultado esperado.]
+1. [Abrir la URL y verificar la página de Inicio.]
+2. [Iniciar sesión con un usuario de prueba.]
+3. [Ver la lista de solicitudes y una ruta dinámica.]
+4. [Probar un caso de error, por ejemplo credenciales inválidas.]
+5. [Ejecutar `npm run build` y verificar que termina sin errores.]
 
-> No publicar contraseñas, tokens, credenciales ni datos sensibles.
+> No se publican contraseñas, credenciales, tokens ni accesos de producción.
 
 
-## 4. Matriz de participación
+## 6. Evidencias
+
+| Actividad | Evidencia |
+|---|---|
+| 1. Consumo de APIs y JWT | [Capturas del login, de la lista y de los errores] |
+| 2. Next.js SSR/SSG | [Captura del resumen de `npm run build` y de la ruta dinámica] |
+| 3. Vercel | [URL funcional y capturas de las rutas desplegadas] |
+| 4. Producción | [Capturas de build, variables (sin valores secretos) y logs] |
+
+
+## 7. Conclusiones
+
+- **API y JWT:** [Qué se aprendió y cómo se aplicó.] *(Sesión 11)*
+- **Next.js (SSR/SSG):** [Qué se aprendió y cómo se aplicó.] *(Sesión 12)*
+- **Vercel y producción:** [Qué se aprendió y cómo se aplicó.] *(Sesión 13)*
+- **Balance del equipo:** [Conclusión general.]
+
+
+## 8. Video de exposición
+
+**Video público de YouTube:** [PEGAR AQUÍ EL ENLACE]
+
+Todos los integrantes participan con la cámara prendida y explican el problema, el procedimiento, la solución, las decisiones tomadas y su justificación, relacionándolas con las sesiones 11 a 13.
+
+
+## 9. Matriz de participación
 
 | Integrante | Desarrollo | Pruebas | Documentación | Exposición | Evidencia de participación |
 |---|---|---|---|---|---|
-| Leonardo Alonso Guillén Zúñiga | [Qué desarrolló] | [Qué probó y cómo] | [Qué documentó] | [Qué explicó en el video] | [Commits, issues o PRs que lo respaldan] |
-| Flavio César García Flores | [Qué desarrolló] | [Qué probó y cómo] | [Qué documentó] | [Qué explicó en el video] | [Commits, issues o PRs que lo respaldan] |
-| Mariano Guerrero Barrueto | [Qué desarrolló] | [Qué probó y cómo] | [Qué documentó] | [Qué explicó en el video] | [Commits, issues o PRs que lo respaldan] |
-| Santiago Javier Prado Carrasco | [Qué desarrolló] | [Qué probó y cómo] | [Qué documentó] | [Qué explicó en el video] | [Commits, issues o PRs que lo respaldan] |
-| Mariano Ramón Valderrama Shuña | [Qué desarrolló] | [Qué probó y cómo] | [Qué documentó] | [Qué explicó en el video] | [Commits, issues o PRs que lo respaldan] |
-
-> Esta matriz se completa al cierre con lo que cada integrante realmente aportó, de acuerdo con el historial de commits.
-
-
-## 5. Video de exposición
-
-**Video público:** [[Click al video]]([URL-del-video])
-
-Todos los integrantes deben participar en la exposición con sus cámaras prendidas y explicar el problema, el procedimiento, la solución desarrollada, las decisiones tomadas y su justificación, relacionándolas con los contenidos de [sesiones o unidades correspondientes].
-
-
-## 6. Conclusiones
-
-- **[Tema 1]:** [Qué se aprendió y cómo se aplicó en el proyecto.] *([Sesión])*
-- **[Tema 2]:** [Qué se aprendió y cómo se aplicó en el proyecto.] *([Sesión])*
-- **[Tema 3]:** [Qué se aprendió y cómo se aplicó en el proyecto.] *([Sesión])*
-- **[Comparación o balance final]:** [Conclusión general del equipo.] *([Sesión])*
+| Leonardo Alonso Guillén Zúñiga | [Qué desarrolló] | [Qué probó] | [Qué documentó] | [Qué explicó en el video] | [Commits] |
+| Flavio César García Flores | [Qué desarrolló] | [Qué probó] | [Qué documentó] | [Qué explicó en el video] | [Commits] |
+| Mariano Guerrero Barrueto | [Qué desarrolló] | [Qué probó] | [Qué documentó] | [Qué explicó en el video] | [Commits] |
+| Santiago Javier Prado Carrasco | [Qué desarrolló] | [Qué probó] | [Qué documentó] | [Qué explicó en el video] | [Commits] |
+| Mariano Ramón Valderrama Shuña | [Qué desarrolló] | [Qué probó] | [Qué documentó] | [Qué explicó en el video] | [Commits] |
 
 ---
 
