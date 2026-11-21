@@ -4,7 +4,7 @@ const cors = require("cors");
 const { usuarios, solicitudes } = require("./mockData");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 4000;
 const SECRET_KEY = "adasdasfdsfsdfsdfsdf";
 
 app.use(cors());
@@ -30,7 +30,12 @@ app.post("/login", (req, res) => {
 
   res.json({
     mensaje: "Login exitoso",
-    token
+    token,
+    usuario: {
+      id: userFound.id,
+      usuario: userFound.usuario,
+      nombre: userFound.nombre
+    }
   });
 });
 
@@ -55,6 +60,17 @@ function verificarToken(req, res, next) {
 
 app.get("/solicitudes", verificarToken, (req, res) => {
   res.json(solicitudes);
+});
+
+app.get("/solicitudes/:id", verificarToken, (req, res) => {
+  const id = Number(req.params.id);
+  const solicitud = solicitudes.find((s) => s.id === id);
+
+  if (!solicitud) {
+    return res.status(404).json({ mensaje: "Solicitud no encontrada" });
+  }
+
+  res.json(solicitud);
 });
 
 
