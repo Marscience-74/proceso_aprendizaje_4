@@ -15,7 +15,7 @@
 | Flavio César García Flores | Actividad 1, parte 2: cliente React (consumo de la API y sesión JWT) | Cliente React con login, consumo de la API con manejo de errores y gestión de la sesión con JWT (en curso). |
 | Mariano Guerrero Barrueto | Actividad 4: preparación para producción (e integración del repositorio) | Estructura del repositorio, README y documentación; ajustes a la API (ruta `GET /solicitudes/:id`, datos del usuario en el login y puerto 4000). Preparación para producción en curso. **Pendiente:** secreto JWT y puerto a variables de entorno, script `start`, logs y `/health` en el backend, evidencia del build con Webpack y completar `docs/produccion.md`. |
 | Santiago Javier Prado Carrasco | Actividad 2: Next.js (SSR, SSG y ruta dinámica) | Proyecto `frontend-next` con Pages Router: `/` con SSG, `/solicitudes` y `/solicitudes/[id]` con SSR y página 404. Documentación en `docs/actividad-2-nextjs.md`. **Pendiente:** completar los resultados y capturas de ese documento y corregir su nota sobre Webpack. |
-| Mariano Ramón Valderrama Shuña | Actividad 3: despliegue del frontend en Vercel | Despliegue del proyecto `frontend-next` en Vercel y verificación de sus rutas (en curso). |
+| Mariano Ramón Valderrama Shuña | Actividad 3: despliegue del frontend en Vercel | Despliegue del proyecto `frontend-next` en Vercel y verificación de sus rutas. URL: https://proceso-aprendizaje-4.vercel.app/ |
 
 ### Reparto de actividades
 
@@ -57,8 +57,19 @@ El proyecto está en `frontend-next` y usa Pages Router.
 La demostración usa datos locales compatibles con el backend (`id`, `titulo` y `estado`); no consume la API ni autentica. Detalle y justificación en [`docs/actividad-2-nextjs.md`](docs/actividad-2-nextjs.md).
 
 ### Actividad 3: Despliegue en Vercel
-[Proceso de despliegue, variables configuradas y verificación de rutas.]  
-**URL desplegada:** [URL de Vercel]
+**URL desplegada:** https://proceso-aprendizaje-4.vercel.app/
+
+**Proceso:** se creó una cuenta en Vercel con GitHub, se hizo un fork del repositorio del grupo (porque pertenece a otra cuenta de GitHub),  se importó en Vercel y se eligió `frontend-next` como Root Directory, porque el proyecto de Next.js está en esa carpeta. Vercel detectó Next.js y usó `npm run build`. Antes de desplegar se ejecutó el build localmente para verificar que no tuviera errores.
+
+**Variables de entorno:** ninguna, porque la demostración usa datos locales y no consume la API.
+
+**Verificación de rutas:**
+- `/`: carga la página de inicio. La hora no cambia al recargar (SSG).
+- `/solicitudes`: muestra 2 solicitudes. La hora cambia al recargar (SSR).
+- `/solicitudes/101`: muestra el detalle de la solicitud (ruta dinámica).
+- `/solicitudes/999`: muestra la página 404.
+
+Capturas en [`docs/evidencias/`](docs/evidencias/).
 
 ### Actividad 4: Preparación para producción
 [Resumen de lo configurado. Detalle en [`docs/produccion.md`](docs/produccion.md).]
@@ -110,7 +121,7 @@ npm run dev
 |---|---|
 | 1. Consumo de APIs y JWT | [Capturas del login, de la lista y de los errores] |
 | 2. Next.js SSR/SSG | [Captura del resumen de `npm run build` y de la ruta dinámica] |
-| 3. Vercel | [URL funcional y capturas de las rutas desplegadas] |
+| 3. Vercel | URL: https://proceso-aprendizaje-4.vercel.app/ · Capturas en `docs/evidencias/` (`vercel-*.png` y `build-next.png`) |
 | 4. Producción | [Capturas de build, variables (sin valores secretos) y logs] |
 
 
@@ -137,7 +148,7 @@ Todos los integrantes participan con la cámara prendida y explican el problema,
 | Flavio César García Flores | Cliente React con login y JWT en curso | [Qué probó] | [Qué documentó] | [Qué explicó en el video] | [Commits] |
 | Mariano Guerrero Barrueto | Ajustes a la API; preparación para producción en curso | [Qué probó] | README, `docs/api.md` y `docs/produccion.md` | [Qué explicó en el video] | Commits "Actualizando la Actividad 1", "Corrigiendo el repositorio" |
 | Santiago Javier Prado Carrasco | Proyecto Next.js con SSG, SSR y ruta dinámica | [Qué probó] | `docs/actividad-2-nextjs.md` | [Qué explicó en el video] | Commit "Implementar Next.js con SSR SSG y detalle dinamico" (PR #2) |
-| Mariano Ramón Valderrama Shuña | Despliegue en Vercel en curso | [Qué probó] | [Qué documentó] | [Qué explicó en el video] | [Commits] |
+| Mariano Ramón Valderrama Shuña | Despliegue de `frontend-next` en Vercel | Build local y verificación de `/`, `/solicitudes`, `/solicitudes/101`, la página 404 y el comportamiento SSG/SSR en producción | Sección Actividad 3 del README y capturas en `docs/evidencias/` | [Qué explicó en el video] | [Commits] |
 
 ---
 
