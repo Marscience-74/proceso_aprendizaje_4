@@ -11,10 +11,10 @@
 
 | Integrante | Rol | Participación |
 |---|---|---|
-| Leonardo Alonso Guillén Zúñiga | Backend Node.js (apoyo a la Actividad 1) | API Express con login JWT, ruta `/solicitudes` protegida con token y datos de prueba (`backend/`). **Pendiente:** pruebas del backend con capturas (login y rutas protegidas). |
+| Leonardo Alonso Guillén Zúñiga | Backend Node.js (apoyo a la Actividad 1) | API Express con login JWT, ruta `/solicitudes` protegida con token y datos de prueba (`backend/`). Las pruebas del backend (login y rutas protegidas, con capturas) las ejecutó Mariano Guerrero Barrueto y están en [`docs/pruebas-backend.md`](docs/pruebas-backend.md). |
 | Flavio César García Flores | Actividad 1, parte 2: cliente React (consumo de la API y sesión JWT) | Cliente React con login, consumo de la API con manejo de errores y gestión de la sesión con JWT (en curso). |
 | Mariano Guerrero Barrueto | Actividad 4: preparación para producción (e integración del repositorio) | Estructura del repositorio, README y documentación; ajustes a la API (ruta `GET /solicitudes/:id`, datos del usuario en el login y puerto 4000). Preparación para producción: variables de entorno, script `start`, logs y `/health` en el backend, build con Webpack documentado en `docs/produccion.md`. |
-| Santiago Javier Prado Carrasco | Actividad 2: Next.js (SSR, SSG y ruta dinámica) | Proyecto `frontend-next` con Pages Router: `/` con SSG, `/solicitudes` y `/solicitudes/[id]` con SSR y página 404. Documentación en `docs/actividad-2-nextjs.md`. **Pendiente:** completar los resultados y capturas de ese documento y corregir su nota sobre Webpack. |
+| Santiago Javier Prado Carrasco | Actividad 2: Next.js (SSR, SSG y ruta dinámica) | Proyecto `frontend-next` con Pages Router: `/` con SSG, `/solicitudes` y `/solicitudes/[id]` con SSR y página 404. Documentación en `docs/actividad-2-nextjs.md`. Los resultados y la nota sobre Webpack de ese documento los completó Mariano Guerrero Barrueto, con las capturas de la Actividad 3 y una verificación local. |
 | Mariano Ramón Valderrama Shuña | Actividad 3: despliegue del frontend en Vercel | Despliegue del proyecto `frontend-next` en Vercel y verificación de sus rutas. URL: https://proceso-aprendizaje-4.vercel.app/ |
 
 ### Reparto de actividades
@@ -132,8 +132,8 @@ npm run dev
 
 | Actividad | Evidencia |
 |---|---|
-| 1. Consumo de APIs y JWT | [Capturas del login, de la lista y de los errores] |
-| 2. Next.js SSR/SSG | [Captura del resumen de `npm run build` y de la ruta dinámica] |
+| 1. Consumo de APIs y JWT | Pruebas del backend en `docs/evidencias/api-login.png` y `api-rutas-protegidas.png`, con el detalle en [`docs/pruebas-backend.md`](docs/pruebas-backend.md). Las capturas del cliente React quedan pendientes. |
+| 2. Next.js SSR/SSG | Tabla de resultados en [`docs/actividad-2-nextjs.md`](docs/actividad-2-nextjs.md) y capturas `build-next.png`, `vercel-inicio.png`, `vercel-ssr-1.png`, `vercel-ssr-2.png`, `vercel-detalle.png` y `vercel-404.png` en `docs/evidencias/` |
 | 3. Vercel | URL: https://proceso-aprendizaje-4.vercel.app/ · Capturas en `docs/evidencias/` (`vercel-*.png` y `build-next.png`) |
 | 4. Producción | Build con Webpack, logs del backend y `/health` en `docs/evidencias/` (`build-webpack.png`, `backend-logs.png`, `health.png`); variables y pruebas en [`docs/produccion.md`](docs/produccion.md) |
 
@@ -157,10 +157,10 @@ Todos los integrantes participan con la cámara prendida y explican el problema,
 
 | Integrante | Desarrollo | Pruebas | Documentación | Exposición | Evidencia de participación |
 |---|---|---|---|---|---|
-| Leonardo Alonso Guillén Zúñiga | API Express con login JWT, `/solicitudes` protegida y datos de prueba | [Qué probó] | [Qué documentó] | [Qué explicó en el video] | Commits "Inicializar proyecto" y "Servidor y mock data" |
+| Leonardo Alonso Guillén Zúñiga | API Express con login JWT, `/solicitudes` protegida y datos de prueba | Pruebas de su API ejecutadas por Mariano Guerrero Barrueto (`docs/pruebas-backend.md`) | [Qué documentó] | [Qué explicó en el video] | Commits "Inicializar proyecto" y "Servidor y mock data" |
 | Flavio César García Flores | Cliente React con login y JWT en curso | [Qué probó] | [Qué documentó] | [Qué explicó en el video] | [Commits] |
 | Mariano Guerrero Barrueto | Ajustes a la API; variables de entorno, logs y `/health`; documentación de producción | Backend sin `.env` (no arranca), login correcto e incorrecto, rutas con y sin token, 404 y JSON inválido; `npm run build` con Webpack | README, `docs/api.md` y `docs/produccion.md` | [Qué explicó en el video] | Commits "Actualizando la Actividad 1", "Corrigiendo el repositorio" |
-| Santiago Javier Prado Carrasco | Proyecto Next.js con SSG, SSR y ruta dinámica | [Qué probó] | `docs/actividad-2-nextjs.md` | [Qué explicó en el video] | Commit "Implementar Next.js con SSR SSG y detalle dinamico" (PR #2) |
+| Santiago Javier Prado Carrasco | Proyecto Next.js con SSG, SSR y ruta dinámica | Resultados verificados por Mariano Guerrero Barrueto (build y prueba local) con capturas de Valderrama | `docs/actividad-2-nextjs.md` | [Qué explicó en el video] | Commit "Implementar Next.js con SSR SSG y detalle dinamico" (PR #2) |
 | Mariano Ramón Valderrama Shuña | Despliegue de `frontend-next` en Vercel | Build local y verificación de `/`, `/solicitudes`, `/solicitudes/101`, la página 404 y el comportamiento SSG/SSR en producción | Sección Actividad 3 del README y capturas en `docs/evidencias/` | [Qué explicó en el video] | [Commits] |
 
 ---
