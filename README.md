@@ -91,9 +91,23 @@ Detalle, pruebas y limitaciones en [`docs/produccion.md`](docs/produccion.md).
 
 ## 4. Solución propuesta
 
-[Arquitectura general: frontend, API, autenticación y despliegue. Puede incluir un diagrama.]
+La solución tiene dos partes que hoy se ejecutan por separado:
 
-**Herramientas:** [React, Next.js, Node.js, Express, Axios, Vercel, Git y GitHub, etc.]
+- **Frontend (`frontend-next`):** aplicación Next.js (Pages Router) desplegada en Vercel. Muestra la información general (SSG), el listado de solicitudes y su detalle (SSR) y una página 404. En esta etapa usa datos locales y no consume la API.
+- **API (`backend`):** servidor Express en el puerto 4000. `POST /login` valida usuario y clave y devuelve un JWT; `GET /solicitudes` y `GET /solicitudes/:id` exigen ese token. Su configuración (secreto, puerto, nivel de logs) viene de variables de entorno, registra cada petición y expone `GET /health`.
+
+```mermaid
+flowchart LR
+  N[Navegador] --> V["Frontend Next.js en Vercel<br/>/ (SSG), /solicitudes y /solicitudes/[id] (SSR)"]
+  V --> D[("Datos locales de demostración")]
+  C["Cliente (curl; cliente React en curso)"] -->|"POST /login → JWT"| A["API Express (puerto 4000)"]
+  C -->|"GET /solicitudes con token"| A
+  A --> M[("Datos de prueba en memoria")]
+```
+
+**Despliegue:** solo el frontend está desplegado (Vercel, con `frontend-next` como Root Directory y sin variables de entorno). El backend corre en local; su despliegue queda para la Evaluación Integral.
+
+**Herramientas:** Node.js 22, Express 5, `jsonwebtoken`, `cors`, `dotenv`, Next.js 16 con React 19 (compilado con Webpack), Vercel, Git y GitHub.
 
 
 ## 5. Cómo ejecutar o revisar
@@ -119,11 +133,12 @@ npm run dev
 **Requisitos:** Node.js (probado con la versión 22). Las variables de entorno previstas están en `.env.example`.
 
 **Pasos de revisión:**
-1. [Abrir la URL y verificar la página de Inicio.]
-2. [Iniciar sesión con un usuario de prueba.]
-3. [Ver la lista de solicitudes y una ruta dinámica.]
-4. [Probar un caso de error, por ejemplo credenciales inválidas.]
-5. [Ejecutar `npm run build` y verificar que termina sin errores.]
+1. Abrir https://proceso-aprendizaje-4.vercel.app/ y verificar la página de Inicio; la hora de "Generada en" no cambia al recargar (SSG).
+2. Abrir `/solicitudes`: muestra 2 solicitudes y la hora cambia en cada recarga (SSR).
+3. Abrir `/solicitudes/101` (ruta dinámica) y `/solicitudes/999`, que muestra la página 404.
+4. En local, con la API en marcha (`npm start`): `curl localhost:4000/health` devuelve `"estado":"ok"`.
+5. Iniciar sesión con `POST /login` (usuario `admin`, clave `123`) y consultar `/solicitudes` con el token; sin token o con credenciales incorrectas responde 401. Los casos y sus resultados están en [`docs/pruebas-backend.md`](docs/pruebas-backend.md).
+6. En `frontend-next`, ejecutar `npm run build` y verificar que termina sin errores y muestra `Next.js 16.4.6 (webpack)`.
 
 > No se publican contraseñas, credenciales, tokens ni accesos de producción.
 
@@ -140,9 +155,9 @@ npm run dev
 
 ## 7. Conclusiones
 
-- **API y JWT:** [Qué se aprendió y cómo se aplicó.] *(Sesión 11)*
-- **Next.js (SSR/SSG):** [Qué se aprendió y cómo se aplicó.] *(Sesión 12)*
-- **Vercel y producción:** [Qué se aprendió y cómo se aplicó.] *(Sesión 13)*
+- **API y JWT:** se construyó una API Express donde el login devuelve un token firmado y un middleware lo verifica antes de entregar los datos, con errores 401 y 404 en un formato JSON uniforme. Queda pendiente el consumo de la API desde el cliente React. *(Sesión 11)*
+- **Next.js (SSR/SSG):** se eligió SSG para la información general, que cambia poco, y SSR para el listado y el detalle, que se resuelven en cada petición. La hora mostrada en cada página permitió comprobar la diferencia, y `notFound` muestra la página 404 para ids inexistentes. *(Sesión 12)*
+- **Vercel y producción:** se desplegó `frontend-next` eligiendo su carpeta como Root Directory, se fijó Webpack en el build y se sacaron del código el secreto y el puerto del backend, con logs sin datos sensibles y un endpoint `/health`. El backend aún no se despliega. *(Sesión 13)*
 - **Balance del equipo:** [Conclusión general.]
 
 
@@ -159,10 +174,10 @@ Todos los integrantes participan con la cámara prendida y explican el problema,
 |---|---|---|---|---|---|
 | Leonardo Alonso Guillén Zúñiga | API Express con login JWT, `/solicitudes` protegida y datos de prueba | Pruebas de su API ejecutadas por Mariano Guerrero Barrueto (`docs/pruebas-backend.md`) | [Qué documentó] | [Qué explicó en el video] | Commits "Inicializar proyecto" y "Servidor y mock data" |
 | Flavio César García Flores | Cliente React con login y JWT en curso | [Qué probó] | [Qué documentó] | [Qué explicó en el video] | [Commits] |
-| Mariano Guerrero Barrueto | Ajustes a la API; variables de entorno, logs y `/health`; documentación de producción | Backend sin `.env` (no arranca), login correcto e incorrecto, rutas con y sin token, 404 y JSON inválido; `npm run build` con Webpack | README, `docs/api.md` y `docs/produccion.md` | [Qué explicó en el video] | Commits "Actualizando la Actividad 1", "Corrigiendo el repositorio" |
+| Mariano Guerrero Barrueto | Ajustes a la API; variables de entorno, logs y `/health`; documentación de producción | Backend sin `.env` (no arranca), login correcto e incorrecto, rutas con y sin token, 404 y JSON inválido; `npm run build` con Webpack | README, `docs/api.md`, `docs/produccion.md` y `docs/pruebas-backend.md` | [Qué explicó en el video] | Commits "Actualizando la Actividad 1", "Corrigiendo el repositorio", "Backend: variables de entorno, logs de peticiones y endpoint /health", "Documentar la Actividad 4: preparación para producción y evidencias", "Completar resultados de la Actividad 2 y corregir la nota sobre Webpack" y "Documentar las pruebas del backend y actualizar el README" |
 | Santiago Javier Prado Carrasco | Proyecto Next.js con SSG, SSR y ruta dinámica | Resultados verificados por Mariano Guerrero Barrueto (build y prueba local) con capturas de Valderrama | `docs/actividad-2-nextjs.md` | [Qué explicó en el video] | Commit "Implementar Next.js con SSR SSG y detalle dinamico" (PR #2) |
 | Mariano Ramón Valderrama Shuña | Despliegue de `frontend-next` en Vercel | Build local y verificación de `/`, `/solicitudes`, `/solicitudes/101`, la página 404 y el comportamiento SSG/SSR en producción | Sección Actividad 3 del README y capturas en `docs/evidencias/` | [Qué explicó en el video] | [Commits] |
 
 ---
 
-**Última actualización:** [22/11/2026]
+**Última actualización:** 22/11/2026
