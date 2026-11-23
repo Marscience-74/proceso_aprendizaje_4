@@ -4,6 +4,8 @@
   "description": "> **Curso:** PROGRAMACION WEB - II  \r > **Código:** 30690  \r > **Evaluación:** PA4 — Proceso de Aprendizaje 4  \r > **Periodo / corte:** 202620 · Sesión 13  \r > **Equipo:** Grupo 7",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +22,7 @@
   "homepage": "https://github.com/Marscience-74/proceso_aprendizaje_4#readme",
   "dependencies": {
     "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
     "express": "^5.3.0",
     "jsonwebtoken": "^9.0.3"
   }
