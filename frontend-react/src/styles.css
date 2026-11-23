@@ -1,0 +1,86 @@
+:root {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #1f2937;
+  background: #f3f4f6;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; }
+
+.contenedor {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 { font-size: 1.5rem; margin: 0 0 16px; }
+h2 { font-size: 1.15rem; margin: 20px 0 12px; }
+
+.barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.barra h1 { margin: 0; }
+.usuario { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; }
+
+.tarjeta {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+form.tarjeta { display: flex; flex-direction: column; gap: 12px; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; }
+
+input {
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+button:hover:not(:disabled) { background: #1d4ed8; }
+button:disabled { opacity: 0.6; cursor: default; }
+
+.lista { list-style: none; padding: 0; margin: 0; }
+.fila { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.fila div { display: flex; flex-direction: column; gap: 4px; }
+
+.estado {
+  display: inline-block;
+  width: fit-content;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  background: #e5e7eb;
+}
+.estado.pendiente { background: #fef3c7; color: #92400e; }
+.estado.aprobado { background: #d1fae5; color: #065f46; }
+
+.mensaje { padding: 10px 12px; border-radius: 6px; margin: 0; }
+.mensaje.error { background: #fee2e2; color: #991b1b; }
+.mensaje.aviso { background: #dbeafe; color: #1e40af; }
+
+.ayuda { font-size: 0.8rem; color: #6b7280; margin: 0; }
+
+.busqueda { display: flex; align-items: flex-end; gap: 12px; margin-top: 20px; }
+.busqueda label { flex: 1; }
+
+dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+dt { color: #6b7280; }
+dd { margin: 0; }
