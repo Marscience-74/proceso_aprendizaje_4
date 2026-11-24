@@ -175,7 +175,7 @@ npm run dev
 
 ## 8. Video de exposición
 
-**Video público de YouTube:** [PEGAR AQUÍ EL ENLACE]
+**Video público de YouTube:** [https://youtu.be/T9i7G0OK4fQ](https://youtu.be/T9i7G0OK4fQ)
 
 Todos los integrantes participan con la cámara prendida y explican el problema, el procedimiento, la solución, las decisiones tomadas y su justificación.
 
