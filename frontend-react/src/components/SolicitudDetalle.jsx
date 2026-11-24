@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getSolicitud } from "../api.js";
+import { getSolicitud } from "../services/api.js";
 
 export default function SolicitudDetalle({ id, token, onVolver, onSesionExpirada }) {
   const [solicitud, setSolicitud] = useState(null);
