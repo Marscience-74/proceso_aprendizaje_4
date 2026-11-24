@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getSolicitudes } from "../api.js";
+import { getSolicitudes } from "../services/api.js";
 
 export default function SolicitudesList({ token, onAbrir, onSesionExpirada }) {
   const [solicitudes, setSolicitudes] = useState(null); // null = cargando
@@ -14,7 +14,29 @@ export default function SolicitudesList({ token, onAbrir, onSesionExpirada }) {
 
     getSolicitudes(token)
       .then((datos) => {
-        if (!cancelado) setSolicitudes(datos);
+        if (cancelado) return;
+
+        // Validación explícita de la respuesta antes de pintarla
+        if (!Array.isArray(datos)) {
+          setError("Formato de respuesta inválido: se esperaba una lista de solicitudes.");
+          return;
+        }
+
+        const esValido = datos.every(
+          (item) =>
+            item &&
+            typeof item === "object" &&
+            "id" in item &&
+            typeof item.titulo === "string" &&
+            typeof item.estado === "string"
+        );
+
+        if (!esValido) {
+          setError("Los datos recibidos no contienen los campos esperados (id, titulo, estado).");
+          return;
+        }
+
+        setSolicitudes(datos);
       })
       .catch((e) => {
         if (cancelado) return;
